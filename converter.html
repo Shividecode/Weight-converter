@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body {
+            margin-top: 50px;
+            background-color: #333;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .ibox {
+            width: 240px;
+            margin-bottom: 40px;
+        }
+
+      
+        .output, .output2{
+            text-align: center;
+        }
+        .myheading{
+            font-size: 50px;
+            color: greenyellow;
+        }
+        .result{
+            margin-top: 5%;
+            margin-left: 5%;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>
+                    <span class="myheading">BMI</span> Calculator
+                </h1>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="output">
+                    <form>
+                        <div class="form-group">
+                            <input type="number" id="weight-box" class="ibox" placeholder="Enter Kilograms">
+                        </div>
+                    </form>
+                    <div class="card mx-auto mb-3 bg-danger" style="width: 15rem;">
+                        <div class="card-block ">
+                            <h4>Pounds:</h4>
+                            <div id="poundsInput"></div>
+                        </div>
+                    </div>
+                    <div class="card mx-auto mb-3 bg-info shadow-sm bg-white rounded" style="width: 15rem;">
+                        <div class="card-block">
+                            <h4>Ounces:</h4>
+                            <div id="ouncesInput"></div>
+                        </div>
+                    </div>
+                    <div class="card mx-auto mb-3 bg-success" style="width: 15rem;">
+                        <div class="card-block">
+                            <h4>Grams:</h4>
+                            <div id="gramsInput"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="output2">
+                    <form>
+                        <div class="form-group">
+                            <input type="number" id="height-box" class="ibox" placeholder=" Enter Feets">
+                        </div>
+                    </form>
+                    <div class="card mx-auto mb-3 bg-info" style="width: 15rem;">
+                        <div class="card-block ">
+                            <h4>Meters:</h4>
+                            <div id="metersInput"></div>
+                        </div>
+                    </div>
+                    <div class="card mx-auto mb-3 bg-info shadow-sm bg-white rounded" style="width: 15rem;">
+                        <div class="card-block">
+                            <h4>Inches:</h4>
+                            <div id="inchInput"></div>
+                        </div>
+                    </div>
+                    <div class="card mx-auto mb-3 bg-success" style="width: 15rem;">
+                        <div class="card-block">
+                            <h4>Centi Meters:</h4>
+                            <div id="centiInput"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="result">
+        <input type="number" id="age" placeholder="Enter Age">
+        <input id="sub" class="btn btn-primary btn-sm" type="submit" value="Submit">
+    </div>
+
+    <script>
+        
+        let kg;
+        var weight = document.getElementById('weight-box');
+
+        weight.addEventListener('input', function (e) {
+            let kg = e.target.value;
+            document.getElementById('poundsInput').innerHTML = kg / 0.4535;
+            document.getElementById('ouncesInput').innerHTML = kg * 35.274;
+            document.getElementById('gramsInput').innerHTML = kg * 1000;
+        });
+        var height = document.getElementById('height-box');
+
+        height.addEventListener('input', function (val) {
+            var hei = val.target.value;
+            document.getElementById('metersInput').innerHTML = hei / 3.28;
+            document.getElementById('inchInput').innerHTML = hei * 12;
+            document.getElementById('centiInput').innerHTML = hei * 30.48;
+        });
+        
+        var al =  document.getElementById('sub');
+        al.addEventListener('click', alerting);
+
+        function alerting(){
+            let val = document.getElementById('age').value;
+            let val1 = document.getElementById('weight-box').value;
+            let val2 = document.getElementById('height-box').value;
+            
+            if(val <=18 && val1 <= 50 && val2 <= 5) 
+                {
+                    alert('Ops you are underweight');
+                }
+         
+
+        }    
+      
+    </script>
+
+
+</body>
+
+</html>
